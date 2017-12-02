@@ -33,16 +33,15 @@ class InfoBox extends React.Component {
         backgroundColor: color
       },
       icon: {
-        height: 48,
-        width: 48,
-        marginTop: 20,
+        height: '100%',
+        width: '100%',
         maxWidth: '100%'
 
       }
     };
 
     return (
-      <Paper>
+      <Paper zDepth={4}>
         <span style={styles.iconSpan}>
           <Icon color={white}
                 style={styles.icon}

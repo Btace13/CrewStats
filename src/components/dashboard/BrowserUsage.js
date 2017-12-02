@@ -1,9 +1,5 @@
 import React, { PropTypes } from 'react';
-import Paper from 'material-ui/Paper';
 import {PieChart, Pie, Cell, ResponsiveContainer} from 'recharts';
-import Avatar from 'material-ui/Avatar';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
 import GlobalStyles from '../../styles';
 
 const BrowserUsage = (props) => {
@@ -11,7 +7,8 @@ const BrowserUsage = (props) => {
   const styles = {
     paper: {
       minHeight: 344,
-      padding: 10
+      padding: 10,
+      marginTop: 70
     },
     legend: {
       paddingTop: 20,
@@ -23,8 +20,8 @@ const BrowserUsage = (props) => {
   };
 
   return (
-    <Paper style={styles.paper}>
-      <span style={GlobalStyles.title}>Browser Usage</span>
+    <div style={styles.paper}>
+      <span style={GlobalStyles.title}>{props.champName}</span>
 
       <div style={GlobalStyles.clear}/>
 
@@ -47,32 +44,14 @@ const BrowserUsage = (props) => {
             </ResponsiveContainer>
           </div>
         </div>
-
-        <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <div style={styles.legend}>
-            <div style={styles.legend}>
-              <List>
-                {props.data.map((item) =>
-                  <ListItem
-                    key={item.name}
-                    leftAvatar={
-                      <Avatar icon={item.icon}
-                              backgroundColor={item.color}/>
-                    }>
-                    {item.name}
-                  </ListItem>
-                )}
-              </List>
-            </div>
-          </div>
-        </div>
       </div>
-    </Paper>
+    </div>
   );
 };
 
 BrowserUsage.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.array,
+  champName: PropTypes.string
 };
 
 export default BrowserUsage;
